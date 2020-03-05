@@ -1,12 +1,8 @@
-import sys
-
-sys.path.append("/home/pi/Desktop/Infosys")
-from skeleton_device import IoTDevice
+from skeleton_device.skeleton_device import IoTDevice
 import json
-import random
 import time
-from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import RPi.GPIO as GPIO
+
 class Heart(IoTDevice):
     def custom_callback(self, client, userdata, message):
         payload = json.loads(message.payload)
@@ -44,7 +40,6 @@ class Heart(IoTDevice):
 
     def button_callback(self, channel):
         if self.button_down == True:
-            print("button")
             self.heart_rate = 150
             message_json = json.dumps(self.device_data)
             self.mqtt_client.publish(self.pub_topic, message_json, 1)

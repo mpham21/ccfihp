@@ -1,8 +1,4 @@
-import sys
-
-sys.path.append("/home/pi/Desktop/Infosys")
-
-from skeleton_device import IoTDevice
+from skeleton_device.skeleton_device import IoTDevice
 import json
 import random
 import time
@@ -65,7 +61,7 @@ device_data = {
         "firmware": "4.1.5"
         },
     "contextual_info": {
-        "timestamp": 1581288902682,
+        "timestamp": None,
         "location": None
         },
     "message": {
